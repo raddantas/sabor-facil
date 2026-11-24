@@ -1,0 +1,25 @@
+body {
+  background-color: #fdf8f3;
+}
+
+.navbar-sabor {
+  background-color: #c0392b;
+}
+
+.titulo {
+  color: #c0392b;
+  font-weight: bold;
+}
+
+.badge-categoria {
+  background-color: #f5b041;
+  color: #333;
+}
+
+.texto-preparo {
+  white-space: pre-line;
+}
+
+.card {
+  border: none;
+}

@@ -1,0 +1,15 @@
+<div class="d-flex flex-column min-vh-100">
+  <app-navbar />
+
+  @if (demo) {
+    <div class="alert alert-warning rounded-0 text-center small mb-0 py-2">
+      Versão de demonstração: os dados ficam salvos só neste navegador.
+    </div>
+  }
+
+  <main class="container py-4 flex-grow-1">
+    <router-outlet />
+  </main>
+
+  <app-footer />
+</div>

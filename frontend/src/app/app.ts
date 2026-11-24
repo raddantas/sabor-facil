@@ -1,0 +1,14 @@
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { Navbar } from './components/navbar/navbar';
+import { Footer } from './components/footer/footer';
+import { environment } from '../environments/environment';
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet, Navbar, Footer],
+  templateUrl: './app.html'
+})
+export class App {
+  demo = environment.demo;
+}

@@ -1,0 +1,38 @@
+<div class="text-center mb-4">
+  <h1 class="titulo">Sabor Fácil</h1>
+  <p class="text-muted">Receitas simples para o dia a dia</p>
+</div>
+
+<div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+  <button type="button" class="btn"
+    [class.btn-danger]="categoriaSelecionada() === ''"
+    [class.btn-outline-danger]="categoriaSelecionada() !== ''"
+    (click)="filtrar('')">
+    Todas
+  </button>
+
+  @for (categoria of categorias; track categoria.valor) {
+    <button type="button" class="btn"
+      [class.btn-danger]="categoriaSelecionada() === categoria.valor"
+      [class.btn-outline-danger]="categoriaSelecionada() !== categoria.valor"
+      (click)="filtrar(categoria.valor)">
+      {{ categoria.nome }}
+    </button>
+  }
+</div>
+
+@if (carregando()) {
+  <p class="text-center text-muted">Carregando receitas...</p>
+} @else if (erro()) {
+  <div class="alert alert-danger">{{ erro() }}</div>
+} @else if (receitas().length === 0) {
+  <p class="text-center text-muted">Nenhuma receita encontrada nessa categoria.</p>
+} @else {
+  <div class="row g-3">
+    @for (receita of receitas(); track receita.id) {
+      <div class="col-12 col-sm-6 col-lg-4">
+        <app-receita-card [receita]="receita" />
+      </div>
+    }
+  </div>
+}
